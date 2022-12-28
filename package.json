@@ -1,0 +1,29 @@
+{
+  "name": "expressjs-project",
+  "version": "1.0.0",
+  "description": "ExpressJS project for learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js",
+    "start:dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dariusz-Wolontariusz/ExpressJS-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dariusz-Wolontariusz/ExpressJS-project/issues"
+  },
+  "homepage": "https://github.com/Dariusz-Wolontariusz/ExpressJS-project#readme",
+  "dependencies": {
+    "env": "^0.0.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
