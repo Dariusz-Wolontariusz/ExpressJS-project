@@ -10,6 +10,7 @@ app.use(express.urlencoded({
   extended: true
 }
 ));
+
 app.use('/api/groceries', groceriesRoute);
 app.use('/api/markets', marketsRoute)
 
