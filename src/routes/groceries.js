@@ -37,4 +37,15 @@ router.get('/:item', (req, res) => {
 	res.send(groceryItem)
 });
 
+router.get('/cart', (req, res) => {
+
+});
+
+router.post('/cart/item', (req, res) => {
+	const { item, quantity } = req.body;
+	const cartItem =  { item, quantity };
+	console.log(req.session);
+	res.send(req.sessionID)
+})
+
 export default router;
