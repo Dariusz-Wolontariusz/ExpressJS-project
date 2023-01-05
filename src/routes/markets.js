@@ -30,6 +30,12 @@ const marketsList = [
 	},
 ];
 
+router.use((req, res, next) => {
+	if (req.session.user) {
+		next();
+	} else res.sendStatus(401);
+});
+
 router.get('', (req, res) => {
 	const { kilometers } = req.query;
 	const parsedKm = parseFloat(kilometers);
