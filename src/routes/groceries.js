@@ -31,21 +31,30 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:item', (req, res) => {
-	console.log('darek zapodaje ciastkiem', req.cookies);
+	// console.log('darek zapodaje ciastkiem', req.cookies);
 	const { item } = req.params;
 	const groceryItem = groceryList.find(i => i.item === item)
 	res.send(groceryItem)
 });
 
-router.get('/cart', (req, res) => {
-
+router.get('/shopping/cart', (req, res) => {
+	const { cart } = req.session;
+	if (!cart) {
+		res.send('You don\'t have any items in a cart')
+	}
+	res.send(cart)
 });
 
-router.post('/cart/item', (req, res) => {
+router.post('/shopping/cart/item', (req, res) => {
 	const { item, quantity } = req.body;
 	const cartItem =  { item, quantity };
-	console.log(req.session);
-	res.send(req.sessionID)
+	const { cart } = req.session;
+	if (cart) {
+		return req.session.cart.items.push(cartItem)
+	} req.session.cart = {
+			items: [cartItem],
+	}
+	res.sendStatus(201)
 })
 
 export default router;
